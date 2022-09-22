@@ -7,11 +7,14 @@ using Webapi.Validation.Author.Query;
 using Webapi.ViewModels.Author;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Webapi.Controllers
 {
     [ApiController]
     [Route("[controller]s")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AuthorController : ControllerBase
     {
         private readonly IBookStoreDbContext _context;

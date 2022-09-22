@@ -3,6 +3,7 @@ using Webapi.Entities;
 using Webapi.ViewModels.Author;
 using Webapi.ViewModels.Book;
 using Webapi.ViewModels.Genre;
+using Webapi.ViewModels.User;
 
 namespace Webapi.Common
 {
@@ -29,6 +30,8 @@ namespace Webapi.Common
             CreateMap<Author, QueryAuthorViewModel>()
                 .ForMember(dest => dest.BirthDate,
                     opt => opt.MapFrom(src => src.BirthDate.Date.ToString("dd/MM/yyy")));
+
+            CreateMap<RegisterUserViewModel, User>();
         }
     }
 }
